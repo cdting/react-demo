@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>this.props.children</title>
+</head>
+<body>
+   <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+    var NoteList = React.createClass({
+        render:function(){
+            //返回给绑定的元素
+            return (
+                <ul>
+                    {
+                        React.Children.map(this.props.children,function(child){
+                            //返回给ul
+                            return <li>{child}</li>;
+                        })
+                    }
+                </ul>
+            );
+        }
+    });
+   ReactDOM.render(
+       //此节点用于React.Children.map遍历
+       <NoteList>
+        <span>窗前明月光</span>
+        <span>疑似地上霜</span>
+        <span>举头望明月</span>
+        <span>低头思故乡</span>
+       </NoteList>,
+       document.getElementById('test')
+   );
+</script>
+</html>         

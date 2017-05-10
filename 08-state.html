@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>this.state</title>
+</head>
+<body>
+   <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+    var ClickButton = React.createClass({
+        //getInitialState用于设置初始状态值，方法固定
+        getInitialState: function(){
+            return {liked: false};
+        },
+        handleClick: function(){
+            //设置当前初始状态值
+            this.setState({
+                liked: !this.state.liked
+            });
+        },
+        render: function(){
+            var text = this.state.liked ? '点击后' : '默认值';
+            return (
+                <p onClick={this.handleClick}>
+                    {text} 点击P
+                </p>
+            )
+        }
+    });
+
+   ReactDOM.render(
+       <ClickButton />,
+       document.getElementById('test')
+   );
+</script>
+</html>

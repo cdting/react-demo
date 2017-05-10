@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>生命周期</title>
+    <style>
+     
+    </style>
+</head>
+<body>
+   <p>
+       React 为每个状态都提供了两种处理函数，will 函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。
+   </p>
+    <p>
+          componentWillMount()
+            componentDidMount()
+            componentWillUpdate(object nextProps, object nextState)
+            componentDidUpdate(object prevProps, object prevState)
+            componentWillUnmount()
+    </p>
+  
+   <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+    var Music = React.createClass({
+        //配置颜色初始值
+        getInitialState: function(){
+            return {
+                opacity: 1.0
+            };
+        },
+        //当组件进入状态的时候才运行
+        componentDidMount:function(){
+            var timer = setInterval(function(){
+                //获取当前初始值
+                var opacity = this.state.opacity;
+                opacity -= .05;
+                if(opacity < 0.1){
+                    opacity = 1.0;
+                };
+                this.setState({
+                    opacity: opacity
+                });
+
+            }.bind(this),100);
+        },
+        render: function(){
+            return (
+                //注意设置style样式的时候需要用两个花括号
+                <div style={{opacity: this.state.opacity}}>
+                    我有一只小毛驴，{this.props.value}
+                </div>
+            )
+        }
+
+    });
+
+   ReactDOM.render(
+       <Music value='我从来也不骑' />,
+       document.getElementById('test')
+   );
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>array</title>
+</head>
+<body>
+   <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+    //数组里面可以写html标签
+    let arr = [
+        <h1>Hello</h1>,
+        <h2>哇哈哈</h2>
+    ];
+    //render里面可以直接给一个数组，也能显示
+   ReactDOM.render(
+        <div>
+            {arr}
+        </div>,
+        document.getElementById('test')
+   );
+</script>
+<script type = 'text/javascript'>
+   
+</script>
+</html>

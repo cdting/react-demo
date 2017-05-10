@@ -8,7 +8,7 @@
     <script src='./build/react.js'></script>
     <script src='./build/react-dom.js'></script>
     <script src='./build/browser.min.js'></script>
-    <title>Document</title>
+    <title>map</title>
 </head>
 
 <body>
@@ -17,15 +17,19 @@
 <script type='text/babel'>
     var names=['tin','lv','zhang']; 
     ReactDOM.render(
-    <div>
-	{
-        names.map(function(name){ 
-	return <div>hello ,{name}!</div>
-        })
-	}
-    </div>,
-	document.getElementById('test'));
-
+    //外面需要先用一个元素包起来，react会使用这个元素，会在上面加类似angular指令的东西
+    //<>符号会识别为html，{}会识别为js
+    <span>
+        { 
+            //map循环
+            names.map(function(name){
+                //返回也要用元素包起来
+                return <div>{name}</div>
+            })
+         }
+    </span>, 
+    //获取要绑定数据的dom元素
+    document.getElementById('test'));
 </script>
 
 </html>

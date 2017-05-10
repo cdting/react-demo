@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>表单操作</title>
+</head>
+<body>
+   <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+//这个更angularjs的双向数据绑定一个意思
+
+    var FormInput = React.createClass({
+        //设置value初始值
+        getInitialState: function(){
+            return {value: '小白兔'}
+        },
+        //当input表单发生改变时获取表单的值给value，只能在event事件中获取，并设置当前状态的value
+        handleChange: function(event){
+            this.setState({value: event.target.value});
+        },
+        render: function(){
+            //获得当前状态默认值value
+            var value = this.state.value;
+            return(
+                <div>
+                    <input type="text" name="" value={value} onChange={this.handleChange} />
+                    <p>{value}</p>
+                </div>
+            );
+        }
+    });
+   ReactDOM.render(
+       <FormInput />,
+       document.getElementById('test')
+   );
+</script>
+</html>

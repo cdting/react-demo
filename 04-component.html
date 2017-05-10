@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>component(组件)</title>
+    <style>
+        .color{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+   <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+    //创建一个类（组件）,类名称字母必须大写开头
+    var Msg = React.createClass({
+        //render方法名是固定的，用于返回输出
+        render:function(){
+            //组件中的html元素是可以设置元素属性的，有个别js保留的关键不能使用，
+            //比如class要写成className
+            //this.props.msg给组件加入一个msg属性，this.props是组件的对象
+            return <h1 className='color'>hello {this.props.msg}</h1>
+        }
+    });
+   ReactDOM.render(
+       //使用对象，并给对象中的属性赋值，属性名称要与组件中的名称一一对应
+       <Msg msg="tin" />,
+       document.getElementById('test')
+   );
+</script>
+</html>

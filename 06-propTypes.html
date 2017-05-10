@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>PropTypes</title>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+<script type = 'text/babel'>
+    var MyText = React.createClass({
+        //getDefaultProps: function(){
+        //    test :'设置默认值'
+        //},
+        //判断文本类型是否是string类型，如果不是会在控制台报错：
+        //Warning: Failed propType: Invalid prop `text` of type `number` supplied to `MyText`, expected `string`.
+        propTypes:{
+            text: React.PropTypes.string.isRequired,
+        },
+        render:function(){
+            return <h1>{this.props.text}</h1>
+        }
+    });
+    var data = 111;
+   ReactDOM.render(
+       //这里需要通过{}表达式来赋值，应为无法使用number类型
+       <MyText text={data} />,
+       document.getElementById('test')
+   );
+</script>
+</html>     
+
+
