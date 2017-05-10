@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <script src='./build/react.js'></script>
+    <script src='./build/react-dom.js'></script>
+    <script src='./build/browser.min.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+</body>
+<script type='text/babel'>
+    var names=['tin','lv','zhang']; 
+    ReactDOM.render(
+    <div>
+	{
+        names.map(function(name){ 
+	return <div>hello ,{name}!</div>
+        })
+	}
+    </div>,
+	document.getElementById('test'));
+
+</script>
+
+</html>

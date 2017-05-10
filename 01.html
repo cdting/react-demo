@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--react核心库-->
+    <script src="./build/react.js"></script>
+    <!--用于操作dom-->
+    <script src="./build/react-dom.js"></script>
+    <!--讲jsx语法转换js语法-->
+    <script src="./build/browser.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <!--react语法是写在text/lable中,这个叫做jsx语法，可以在里面混合嵌套（html js xml）-->
+    <script type="text/babel">
+        ReactDOM.render(
+        <h1>hello,world</h1>, document.getElementById('test') );
+    </script>
+</body>
+
+</html>
